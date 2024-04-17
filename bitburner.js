@@ -4,5 +4,6 @@ import { wrap } from 'wrap.js'
 export async function main(ns) {
   const argList = [1000];
   let res = await wrap(ns.read('compute.js'), 'calcResult', argList);
+  // let res = calcResult(...argList);
   ns.tprint(res);
 }
