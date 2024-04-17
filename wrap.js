@@ -18,7 +18,7 @@ export function wrap(module_txt, func_name, argList) {
 onmessage = function (event) {
   postMessage(${func_name}(...event.data));
 }
-` + module_txt.replaceAll(/^export /g, ''); // "export function" -> "function"
+` + module_txt.replaceAll('export ', ''); // "export function" -> "function"
 
     const blob = new Blob([worker_code_txt], { type: "text/javascript" });
     const worker = new Worker(window.URL.createObjectURL(blob));
